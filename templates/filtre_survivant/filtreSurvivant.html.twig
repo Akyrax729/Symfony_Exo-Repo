@@ -6,6 +6,12 @@
 <main>
     <div class="filter">
       {# --VOTRE FORMULAIRE DE FILTRE ICI-- #}
+        <section id="form">
+            {{form_start(filterform)}} 
+                {{form_widget(filterform)}}
+                <button>Filtrer</button>
+            {{form_end(filterform)}}
+        </section>
     </div>
     
     <section id="survivants" >

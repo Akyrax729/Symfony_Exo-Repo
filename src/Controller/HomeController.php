@@ -17,8 +17,31 @@ final class HomeController extends AbstractController
     {
         //recuperation de la requête GET qu'on stocke dans $filter
         $filter = $request->get('filter','all');
-        
-        $survivants = $repository->findAll();
+
+        switch ($filter){
+            case "za":
+                $survivants = $repository->filterZA();
+                break;
+
+            case "nain":
+                $survivants = $repository->filterNain('Nain');
+                break;
+
+            case "elfe":
+                $survivants = $repository->filterElfe25('Elfe', 25);
+                break;
+
+            case "human":
+                $survivants = $repository->filterNotHuman('Humain', 'Archer');
+                break;
+
+            case "all":
+                $survivants = $repository->findAll();  
+
+                break;
+        }
+
+
         return $this->render('home/index.html.twig', [
             'survivants' => $survivants,
         ]);

@@ -36,5 +36,16 @@
         }
     }
 
-    
+    #form {
+
+        &>form>#filter>div>label {
+            font-size: 32px;
+        }
+
+        #filter_race, #filter_class {
+
+            @include m.flex();
+            
+        }
+    }
 }
